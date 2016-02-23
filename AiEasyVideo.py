@@ -55,7 +55,7 @@ downmode= input ('如下载全部视频，请输入 Y，单集请输入集号数
 savepath = None
 if (platform.system() =="Windows"):
     savepath = "D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]
-    if(os.path.exists(savepath == False):
+    if(os.path.exists(savepath) == False):
             os.makedirs(savepath)
     savepath = savepath + "\\"
 elif (platform.system() =="Linux"):
