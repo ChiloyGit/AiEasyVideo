@@ -52,10 +52,6 @@ print ('即将开始下载工作，请保证D盘有足够的硬盘空间！')
 
 
 downmode= input ('如下载全部视频，请输入 Y，单集请输入集号数字：')
-if (os.path.exists("D:\\AiEasyVideo") == False): 
-    os.mkdir("D:\\AiEasyVideo")
-if (os.path.exists("D:\\AiEasyVideo\\" + splitname[0]) == False):
-        os.mkdir("D:\\AiEasyVideo\\" + splitname[0])
 if(os.path.exists("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]) == False):
             os.mkdir("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1])
 
