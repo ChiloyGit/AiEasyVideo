@@ -52,20 +52,26 @@ print ('即将开始下载工作，请保证D盘有足够的硬盘空间！')
 
 
 downmode= input ('如下载全部视频，请输入 Y，单集请输入集号数字：')
+savepath = None
 if (platform.system() =="Windows"):
-    if(os.path.exists("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]) == False):
-            os.makedirs("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1])
+    savepath = "D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]
+    if(os.path.exists(savepath == False):
+            os.makedirs(savepath)
+    savepath = savepath + "\\"
 elif (platform.system() =="Linux"):
-    
+    savepath = '/home/Downloads/AiEasyVideo'
+    if (os.path.exists(savepath) == False):
+            os.makedirs(savepath)
+    savepath = savepath +"/"
 if (downmode == 'Y'):
     for downstep in downurlarr:        # 第二个实例   
         print ('正在下载第%d集：%s，剩余下载%d集' % (downurlarr.index(downstep) + 1, lesarr[downurlarr.index(downstep)], len(downurlarr) - (downurlarr.index(downstep) + 1)))
-        wget.download(downstep, "D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1] + '\\' + lesarr[downurlarr.index(downstep)] + '.mp4')
+        wget.download(downstep, savepath + lesarr[downurlarr.index(downstep)] + '.mp4')
     print ('视频下载完成！好好学习！天天向上！')
 elif(0 < int(downmode)< len(downurlarr)):
     downnumber = int(downmode) - 1
     print ('请稍后正在下载第%d集：%s' % (int(downmode), lesarr[downnumber]))
-    wget.download(downurlarr[downnumber], "D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1] + '\\'  + lesarr[downnumber] +'.mp4')
+    wget.download(downurlarr[downnumber], savepath  + lesarr[downnumber] +'.mp4')
     print ('视频下载完成！好好学习！天天向上！')
     inexit = input ('输入Q退出本程序')
     while inexit =='Q':
