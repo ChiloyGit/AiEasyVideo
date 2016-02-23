@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # The code used download NetEasy Public Lesson video
-import os, wget, bs4, requests, re, sys
+import os, wget, bs4, requests, re, sys, platform
 def _sysexit():
     input("请按回车键退出: ")
     sys.exit()
@@ -52,9 +52,11 @@ print ('即将开始下载工作，请保证D盘有足够的硬盘空间！')
 
 
 downmode= input ('如下载全部视频，请输入 Y，单集请输入集号数字：')
-if(os.path.exists("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]) == False):
-            os.mkdir("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1])
-
+if (platform.system() =="Windows"):
+    if(os.path.exists("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1]) == False):
+            os.makedirs("D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1])
+elif (platform.system() =="Linux"):
+    
 if (downmode == 'Y'):
     for downstep in downurlarr:        # 第二个实例   
         print ('正在下载第%d集：%s，剩余下载%d集' % (downurlarr.index(downstep) + 1, lesarr[downurlarr.index(downstep)], len(downurlarr) - (downurlarr.index(downstep) + 1)))
