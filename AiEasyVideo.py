@@ -66,7 +66,7 @@ elif(0 < int(downmode)< len(downurlarr)):
     wget.download(downurlarr[downnumber], "D:\\AiEasyVideo\\" + splitname[0] + '\\' + splitname[1] + '\\'  + lesarr[downnumber] +'.mp4')
     print ('视频下载完成！好好学习！天天向上！')
     inexit = input ('输入Q退出本程序')
-    while inexit =='Y':
+    while inexit =='Q':
         print ('感谢使用本程序')
         sys.exit()
         
